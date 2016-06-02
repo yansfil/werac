@@ -7,5 +7,10 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <%if(userid) { %>
+      <a href="/userss/logout">로그아웃</a>
+    <%}else {%>
+    <a href="/userss/login">로그인</a>
+    <%}%>
   </body>
 </html>

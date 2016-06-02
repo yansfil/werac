@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jquery-ui.min.css" />
+    <script src="/javascript/jquery-1.9.1.js"></script>
+	<script src="/javascript/jquery-ui-1.10.3.custom.min.js"></script>
+	<script src="/javascript/jquery.cookie.js"></script>
+	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+ <script>
+	var socket = io.connect();
+	socket.on('connect', function(){
+		socket.emit('guestjoin', 'lobby');
+	});
+
+	socket.on('recvmsg', function (username, data) {
+		$('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
+		if ($('#scrolldiv').prop('scrollHeight') > $('#scrolldiv').height())
+			$('#scrolldiv').scrollTop($('#scrolldiv').prop('scrollHeight'));
+	});
+
+	socket.on('servernoti', function (col, data) {
+		$('#conversation').append('<b><font color='+col+'>' + data + '</font></b><br>');
+		if ($('#scrolldiv').prop('scrollHeight') > $('#scrolldiv').height())
+			$('#scrolldiv').scrollTop($('#scrolldiv').prop('scrollHeight'));
+	});
+
+	socket.on('updateuser', function (usernames) {
+		$('#userlist').empty();
+		$.each(usernames, function (key, value) {
+			$('#userlist').append('<div>' + value + '</div>');
+		});
+	});
+
+	$(function(){
+		$('#data').keypress(function(e) {
+			if(e.which == 13) {
+				$(this).blur();
+				$('#datasend').focus().click();
+				$('#data').focus();
+			}
+		});
+
+		$('#datasend').click( function() {
+			var message = $('#data').val();
+			$('#data').val('');
+			socket.emit('sendmsg', message);
+		});
+	});
+</script>
+  </head>
+<body>
+
+<div id="header" class="ui-widget" style="overflow: hidden;">
+	<div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+		<p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+		<strong>Welcome</strong> to the J Chat.</p>
+	</div>
+</div>
+<div id="box">
+	<div id="scrolldiv" style="float:left;width:80%;height:250px; margin-top:20px; overflow: auto;">
+		<div id="conversation"></div>
+	</div>
+	<div style="float:left;width:20%;height:250px;">
+		<div id="userlist" style="width:100%;height:250px; margin:20px 20px 10px 10px; overflow: auto;"></div>
+	</div>
+	<div >
+		<input id="data" style="width:80%; overflow:hidden;" />
+		<input type="button" id="datasend" value="send" />
+	</div>
+</div>
+</body>
+</html>
