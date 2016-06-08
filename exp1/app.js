@@ -9,6 +9,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var socket = require('socket.io'); //채팅 테스트용
 var session = require('express-session'); //session 테스트용
+var RedisStore = require('connect-redis')(session);
+var client = require("redis").createClient();
 var http = require('http');
 var app = express();
 
@@ -26,12 +28,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({    //세션기능을 추가해줄 때는 반드시 url router 위에다가 추가!!
+  store: new RedisStore({ host: 'localhost', port: 6379, client: client}),
   secret: 'keyboard cat',
   resave: true,
-  // cookie: { maxAge: (60000 * 24 * 30)},
+  cookie: { maxAge: (100*30*60* 60*1000)},
   saveUninitialized: false, //로그인을 쓰려면 false 복합기능 쓰려면 true
 }));
-
+ 
 
 app.use('/', routes);
 app.use('/userss', users);

@@ -28,7 +28,7 @@ var profile_storage = multer.diskStorage({ //profile의 사진 저장소 정보
 });
 var item_storage = multer.diskStorage({ //item의 사진 저장소 정보
   destination: function (req, file, cb) {
-    cb(null, './public/images');
+    cb(null, './public/images/item');
   },
   filename: function (req, file, cb) {
   	var tmp = file.mimetype; // 'image/jpeg', 'image/png', 'image/gif'
@@ -46,7 +46,6 @@ var UserModel = db.model('User');
 var ItemModel = db.model('Item');
 
 
-
 <!--router 실행부 -->
 
 router.get('/',function(req,res,next){
@@ -55,8 +54,8 @@ router.get('/',function(req,res,next){
 router.post('/join', join); //회원가입하기
 router.post('/login' , login); //로그인하기
 router.post('/logout', logout); //로그아웃하기
-router.get('/users', showUsers); //유저 전체정보
-router.get('/my_profile/:uid', showUser); //마이페이지 정보
+router.get('/users', showUsers); //유저 전체정보 
+router.get('/my_profile/', showUser); //마이페이지 정보
 router.get('/list/0', showLists);//홈화면 리스트
 router.get('/list/1',showList1);// 진행단게 리스트들
 router.get('/list/2', showList2); // 참가, 완료단계 리스트들
@@ -64,13 +63,17 @@ router.get('/listdetail/:mid', showListDetail); //mid에 따른 상세정보
 router.get('/mc_profile/:uid', showMcProfile); //진행자에 대한 정보 보기
 router.get('/creator_profile/:uid', showCreatorProfile); //개설자에 대한 정보 보기
 router.get('/listdetail/:mid/guests', showGuestLists); //모임의 참여자들에 대한 정보 보기
-router.post('/listdetail/:mid/like/:uid', addLike); //모임의 좋아요
+router.post('/change/:mid', changeStatus); //제안 -> 참가상태 전환
+router.post('/listdetail/:mid/like', addLike); //모임의 좋아요
 router.post('/listDetail/:mid/comment', addComment); //댓글 달기
 router.post('/listDetail/:mid/reply/:id', addReply); //댓글에 답글달기
 router.post('/listDetail/:mid/clike/:id', addCLike); //댓글에 좋아요하기
-router.post('/create/:uid', upload2.single('image'), saveItem); //모임 등록하기
+router.post('/apply/:mid/:uid',applyMc); //진행자 지원하기 (alarm status 1)
+router.post('/apply_result/:mid/:uid/:result',resultMc); //진행자 지원결과 보기 (alarm status 2)
+router.post('/create', upload2.single('image'), saveItem); //모임 등록하기
 router.post('/update/:mid', upload2.single('image'), updateItem); //모임 수정하기
-router.post('/upload1', upload2.single('pic'), function(req, res, next) {
+router.post('/my_profile',upload1.single('profile_image'), updateUser); //프로필 수정하기
+router.post('/upload1', upload2.single('image'), function(req, res, next) {
 	console.log('req.body=', req.body);
 	console.log('req.file=', req.file);
 	res.json({result:'OK'});
@@ -124,7 +127,6 @@ function logout(req,res,next){
   })
 }
 
-
 function showUsers(req, res, next){
   queries.getUsers(function(type,docs){
     if(type==1) res.json({success: 1 , message : "OK", result : docs});
@@ -133,7 +135,7 @@ function showUsers(req, res, next){
 }; //유저 전체정보
 
 function showUser(req,res,next){
-  var uid = req.params.uid;
+  var uid = sessionId
   queries.getProfile('my',uid,function(type,docs){
     if(type==1) res.json({success: 1 , message : "OK", result : docs});
     else res.json({success: 0 , message : "NO", result : docs});
@@ -195,7 +197,7 @@ function showGuestLists(req,res,next){
 
 function addLike(req,res,next){
   var mid = req.params.mid;
-  var uid = req.params.uid;
+  var uid = sessionId;
   queries.postLike(mid,uid,function(type,docs){
     if(type==1) res.json({success: 1 , message : "OK", result : docs});
     else if(type==2) res.json({success: 2 , message : "OK", result : docs});
@@ -206,10 +208,11 @@ function addLike(req,res,next){
 function saveItem(req,res,next){
   console.log('req.body = ', req.body);
   console.log(req.file);
-  console.log('image로 저장될 url ',"http://52.79.178.195:3000/images/"+req.file.filename);
+  console.log('image로 저장될 url ',"http://52.79.178.195:3000/images/item/"+req.file.filename);
+  console.log('sessionId : ', sessionId);
   async.waterfall([  //async로 size를 얻어온후 결과값을 post요청한다.
     function(callback){
-      var imagePath ='public/images/'+req.file.filename; //이미지 실제path
+      var imagePath ='public/images/item/'+req.file.filename; //이미지 실제path
       sizeOf(imagePath, function (err, dimensions) { //이미지 사이즈 측정후 넣기
         if(err){return next(err);}
         var image_size = [];
@@ -218,11 +221,10 @@ function saveItem(req,res,next){
         callback(null,image_size);
       });
     },function(image_size,callback){
-
-      var uid = req.params.uid;
+      var uid = sessionId;
       var has_mc = req.body.has_mc;
-      var imagePath ='public/images/'+req.file.filename;
-      var image = "http://52.79.178.195:3000/images/"+req.file.filename;
+      var imagePath ='public/images/item/'+req.file.filename;
+      var image = "http://52.79.178.195:3000/images/item/"+req.file.filename;
       var title  = req.body.title;
       var title_sub  = req.body.title_sub;
       var schedule = req.body.schedule;
@@ -234,7 +236,7 @@ function saveItem(req,res,next){
       var fee = req.body.fee;
       var limit_num = req.body.limit_num;
       var item = new ItemModel({
-        uid : uid,
+        creator : uid,
         has_mc : has_mc,
         image : image,
         image_size : image_size,
@@ -242,19 +244,23 @@ function saveItem(req,res,next){
         title_sub : title_sub,
         schedule : schedule,
         location_detail : location_detail,
-        location_area : location_detail,
+        location_area : location_area,
         date : date,
         start_time : start_time,
         end_time : end_time,
         fee : fee,
         limit_num : limit_num
       });
+      if(!has_mc){
+        item.mc = uid
+      }
       callback(null,item);
     }
   ],function(err,item){
     queries.postItem(item, function(type,docs){
       if(type==1) res.json({success: 1 , message : "OK", result : docs});
       else res.json({success: 0 , message : "NO", result : docs});
+      console.log(docs);
     })
   });
 
@@ -263,13 +269,14 @@ function saveItem(req,res,next){
 
 function updateItem(req,res,next){
   var mid = req.params.mid;
+  var uid = sessionId;
   var has_mc = req.body.has_mc;
   async.waterfall([
     function(callback){
       if(req.file){ //이미지파일을 변경했을 때
-        var image = "http://52.79.178.195:3000/images/"+req.file.filename;
+        var image = "http://52.79.178.195:3000/images/item/"+req.file.filename;
         var image_size = [];
-        var imagePath ='public/images/'+req.file.filename; //이미지 실제path
+        var imagePath ='public/images/item/'+req.file.filename; //이미지 실제path
         sizeOf(imagePath, function (err, dimensions) { //이미지 사이즈 측정 + 기존이미지 삭제
           if(err){return next(err);}
           image_size.push(dimensions.width);
@@ -346,7 +353,7 @@ function updateItem(req,res,next){
       callback(null,item);
     }
   ],function(err,item){
-    queries.postUpdatedItem(mid,item, function(type,docs){
+    queries.postUpdatedItem(mid,uid,item, function(type,docs){
       if(type==1){ res.json({success: 1 , message : "OK", result : docs});
     }
       else{
@@ -359,7 +366,7 @@ function updateItem(req,res,next){
 function addComment(req,res,next){
   var mid = req.params.mid;
   var content = req.query.content;
-  var uid = req.query.uid;
+  var uid = sessionId;
   queries.postComment(mid,uid,content,function(type,docs){
     if(type==1) res.json({success: 1 , message : "OK", result : docs});
     else res.json({success: 0 , message : "NO", result : docs});
@@ -388,6 +395,92 @@ function addCLike(req,res,next){
   })
 };
 
+function changeStatus(req,res,next){
+  var mid = req.params.mid;
+  var uid = sessionId;
+  console.log(123456);
+  queries.getChangedStatus(mid,uid,function(type, docs){
+    if(type==1) res.json({success: 1 , message : "OK", result : docs});
+    else res.json({success: 0 , message : "NO", result : docs});
+  });
+};
+
+function updateUser(req,res,next){
+  var uid = sessionId;
+  async.waterfall([
+    function(callback){
+      if(req.file){ //이미지파일을 변경했을 때
+        var image = "http://52.79.178.195:3000/images/profile/"+req.file.filename;
+        var imagePath ='public/images/profile/'+req.file.filename; //이미지 실제path
+        console.log("file : "+image);
+        UserModel.findOne({_id:uid},function(err,docs){
+          if(err){return next(err);}
+          else{
+          var prevPath = 'public'+url.parse(docs.profile_image).path; //이전 path
+          console.log("prevPath : ",prevPath);
+          fs.exists(prevPath, function (exists) { //기존이미지 삭제
+            if(exists){
+              console.log('exists : ',exists);
+              fs.unlink(prevPath, function (err) {
+                if(err){return next(err);}
+                console.log('image delete!');
+              });
+            }
+          });
+          }
+        });
+          callback(null,image);
+        }else{   //이미지파일은 그대로 일 때
+          var image = "";
+          if(req.body.profile_image){
+            image = req.body.profile_image;
+          }
+          console.log("url : "+image);
+          callback(null,image);
+        }
+    },function(image,callback){
+      var name = req.body.name;
+      var comment = req.body.comment;
+      var phone = req.body.phone;
+      var user = {
+        profile_image : image,
+        name : name,
+        comment : comment,
+        phone : phone,
+      };
+      callback(null,user);
+    }
+  ],function(err,user){
+    if(err) return next(err);
+    queries.postUpdatedUser(uid,user, function(type,docs){
+      if(type==1){ res.json({success: 1 , message : "OK", result : docs});
+      }else{
+        res.json({success: 0 , message : "NO", result : docs});
+      }
+    })
+  });
+};
+
+function applyMc(req,res,next){
+  var mid = req.params.mid;
+  var uid = req.params.uid;
+
+  queries.postApply(mid,uid,function(type,docs){
+    if(type==1) res.json({success: 1 , message : "OK", result : docs});
+    else res.json({success: 0 , message : "NO", result : docs});
+  });
+};
+
+function resultMc(req,res,next){
+  var mid = req.params.mid;
+  var uid = req.params.uid;
+  var result = req.params.result;
+  queries.postApplyResult(mid,uid,result,function(type,docs){
+    if(type==1) res.json({success: 1 , message : "OK", result : docs});
+    else res.json({success: 0 , message : "NO", result : docs});
+  })
+};
+
 router.get('/user/:num',function(req,res,next){
   var num = parseInt(req.params.num);
   var user = new UserModel({
@@ -398,9 +491,9 @@ router.get('/user/:num',function(req,res,next){
     comment: "코멘트"+num,
     phone: "01012345678",
     history_create : [num],
-    history_join : [Math.ceil(Math.random()*20),Math.ceil(Math.random()*20)],
-    history_mc : [Math.ceil(Math.random()*20)],
-    history_like : [Math.ceil(Math.random()*20)],
+    history_join : [],
+    history_mc : [],
+    history_like : [],
     alarm : [
       {
 			read : 0,
@@ -435,7 +528,7 @@ router.get('/item/:num',function(req,res,next){
 
   var item = new ItemModel({
     status : Math.ceil(Math.random()*3),
-    uid : num+2,
+    uid : num,
     mc_id : Math.ceil(Math.random()*20),
     image : "",
     title : "타이틀"+ num,

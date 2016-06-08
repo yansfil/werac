@@ -16,7 +16,6 @@ var userSchema = mongoose.Schema({
   history_mc : [{type : Number , ref : "Item"}],
   history_like : [{type : Number , ref : "Item"}],
   alarm : [{
-    read : Number,
     status : Number,
     mid : Number,
     uid : Number,
@@ -27,8 +26,8 @@ var userSchema = mongoose.Schema({
 var itemSchema = mongoose.Schema({
 _id : Number,
 status : {type :Number, default : 1},
-uid : Number,
-mc_id : Number,
+creator : {type: Number , ref : 'User'},
+mc : {type: Number , ref : 'User'},
 has_mc : {type : Boolean, default : false },
 reg_date : {type:Date, default : Date.now},
 image : String,
@@ -43,18 +42,20 @@ start_time : String,
 end_time : String,
 fee : {type : String, default: 0},
 limit_num : {type : String, default: 0},
-guests_id : [{type: Number , ref : 'User'}],
+guests : [{type: Number , ref : 'User'}],
 like : {type: Number, default : 0},
+likeList : [Number],
 comments : [
   {
-    uid : {type : Number, ref: 'User'},
+    user : {type : Number, ref: 'User'},
     content : String,
+    profile_image : String,
     like : {type : Number, default : 0},
     likeList : [Number],
     date : {type: Date , default : Date.now},
     reply : [
       {
-        uid : {type : Number, ref: 'User'},
+        user : {type : Number, ref: 'User'},
         content : String
       }
     ]
