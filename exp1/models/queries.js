@@ -212,15 +212,34 @@ exports.postUpdatedItem = function(mid, uid, item, callback){
   async.series([
     function(callback1){
       if(item.has_mc){ //has_mc 있으면 mc unset
-          ItemModel.update({_id:mid, creator:uid, status:1},{$set:item,$unset:{mc:""}},function(err,docs1){
-            if(err){
-              err.code = 500;
-              return callback1(err);
+            console.log("has_mc가 true일때");
+          ItemModel.findOne({_id:mid, creator:uid, status : 1, has_mc:true, mc:{$exists:true}},function(err,docs){
+            if(docs){ //has_mc 가 true 이며 mc는 존재한다 . 즉 진행자를 뽑은 상태
+                console.log("MCMCMC잇어염잇어염");
+                ItemModel.update({_id:mid, creator:uid, status:1},{$set:item},function(err,docs1){
+                  if(err){
+                    err.code = 500;
+                    return callback1(err);
+                  }
+                  console.log(docs1);
+                  callback1(null);
+                });
+            }else{
+                ItemModel.update({_id:mid, creator:uid, status:1},{$set:item,$unset:{mc:""}},function(err,docs1){
+                  if(err){
+                    err.code = 500;
+                    return callback1(err);
+                  }
+                  console.log(docs1);
+                  callback1(null);
+                });
+                console.log("MC없어염");
             }
-            console.log(docs1);
-            callback1(null);
           });
+
       }else{ //없으면 mc 냅두고
+          console.log("has_mc가 false일때");
+          item.mc = uid;
           ItemModel.update({_id:mid, creator:uid, status:1},{$set:item},function(err,docs1){
             if(err){
               err.code = 500;
@@ -352,7 +371,7 @@ exports.postLike = function(mid,uid,callback){
 };
 
 exports.postComment = function(mid, uid, content,callback){
-  ItemModel.update({_id:mid},{$push:{comments : {user : uid, content : content}}},function(err,docs){
+  ItemModel.findOneAndUpdate({_id:mid},{$push:{comments : {user : uid, content : content}}},{new : true } ,function(err,docs){
     if(err){
       err.code = 500;
       console.log(err.message);
@@ -361,7 +380,16 @@ exports.postComment = function(mid, uid, content,callback){
     if(docs.nModified == 0){
       return callback(0,"업데이트 실패");
     };
-    callback(1,docs);
+
+    var length = docs.comments.length;
+    var comment = docs.comments[length-1];
+    var result = {
+        _id : comment._id,
+        content : comment.content,
+        likeList : comment.likeList
+    };
+    callback(1,result);
+    console.log('results : ',JSON.stringify(result, null, 4));
   });
 };
 
@@ -547,8 +575,6 @@ exports.postApplyResult = function(mid,creatorId,uid,result,callback){
     },function(comment2,callback3){ //탈락한 유저에게 메세지 보내기
          console.log('3단계 waterfall');
         UserModel.findOne({_id:{$in:applyList}, alarm:{$elemMatch:{status:2, mid:mid}}},function(err,docs){ //중복 방지
-            if(err) return callback(0, err);
-            if(docs){
                 console.log('탈락한 유저에게 메세지 보내기 성공')
                 var gcm_tokens = [];
                 applyList.splice(applyList.indexOf(uid),1); //선정된 유저는 applyList에서 제외
@@ -566,13 +592,9 @@ exports.postApplyResult = function(mid,creatorId,uid,result,callback){
                         });
                     });
                 }else{
-                    console.log("아무것도없이되었다");
+                    console.log("1명만이 지원하였다");
                     callback3(null, "최종완료");
                 }
-            }else{
-                console.log('탈락한 유저에게 메세지 보내기 실패')
-                    callback3(null, "최종실패")
-            }
         });
     }
 ],function(err,result){ //status 4로 전환하기!

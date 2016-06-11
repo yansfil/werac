@@ -1,0 +1,331 @@
+
+> exp1@0.0.0 start /home/ubuntu/projects/exp1
+> nodemon app.js
+
+[33m[nodemon] 1.9.2[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node app.js`[39m
+MongoDb connected successfully
+user : 6666@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m50.309 ms - 3221[0m
+[0mGET /list/0 [36m304 [0m207.494 ms - -[0m
+[0mPOST /logout [32m200 [0m1.588 ms - 47[0m
+user : 6666@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m16.196 ms - 3221[0m
+[0mGET /list/0 [32m200 [0m69.999 ms - 30637[0m
+[0mGET /images/item/real-1465616390504.jpg [32m200 [0m0.813 ms - 114334[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m0.858 ms - 151138[0m
+[0mGET /images/item/real-1465621342992.jpg [32m200 [0m3.041 ms - 308483[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m3.029 ms - 2384441[0m
+[0mGET /list/0 [36m304 [0m101.428 ms - -[0m
+req.body =  { title: '',
+  title_sub: '',
+  location_detail: '',
+  location_area: '서울시',
+  date: '2016년5월11일',
+  start_time: '00시 00분',
+  end_time: '00시 00분',
+  fee: '0',
+  limit_num: '0',
+  has_mc: 'false',
+  schedule: [ '' ] }
+{ fieldname: 'image',
+  originalname: '20160610_170458.jpg',
+  encoding: '7bit',
+  mimetype: 'image/jpeg',
+  destination: './public/images/item',
+  filename: 'real-1465624158030.jpg',
+  path: 'public/images/item/real-1465624158030.jpg',
+  size: 4493334 }
+image로 저장될 url  http://52.79.178.195:3000/images/item/real-1465624158030.jpg
+pre_cod의 id : 139
+[object Object]
+[0mPOST /create [32m200 [0m2288.791 ms - 505[0m
+[0mPOST /logout [32m200 [0m1.532 ms - 47[0m
+user : 6666@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m12.569 ms - 3221[0m
+[0mGET /list/0 [32m200 [0m76.300 ms - 30877[0m
+[0mGET /images/item/real-1465616390504.jpg [32m200 [0m1.962 ms - 114334[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m4.101 ms - 151138[0m
+[0mGET /images/item/real-1465621342992.jpg [32m200 [0m2.162 ms - 308483[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m4.278 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m1.116 ms - 4493334[0m
+[0mGET /list/0 [36m304 [0m73.097 ms - -[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.705 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m11.829 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.579 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.381 ms - 2384441[0m
+[0mGET /list/0 [36m304 [0m49.767 ms - -[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.357 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m1.066 ms - 4493334[0m
+[0mPOST /logout [32m200 [0m1.532 ms - 47[0m
+user : 6666@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m12.532 ms - 3221[0m
+[0mGET /list/0 [32m200 [0m50.850 ms - 30877[0m
+[0mGET /images/item/real-1465616390504.jpg [32m200 [0m0.660 ms - 114334[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m2.097 ms - 151138[0m
+[0mGET /images/item/real-1465621342992.jpg [32m200 [0m2.306 ms - 308483[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.706 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.814 ms - 4493334[0m
+[0mGET /list/0 [36m304 [0m68.853 ms - -[0m
+[0mGET /list/0 [36m304 [0m74.745 ms - -[0m
+[0mGET /list/0 [36m304 [0m56.502 ms - -[0m
+user : 6666@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m12.481 ms - 3221[0m
+[0mGET /list/0 [36m304 [0m55.091 ms - -[0m
+[0mPOST /logout [32m200 [0m1.207 ms - 47[0m
+user : 6666@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m10.132 ms - 3221[0m
+[0mGET /list/0 [32m200 [0m47.498 ms - 30877[0m
+[0mGET /images/item/real-1465616390504.jpg [32m200 [0m0.662 ms - 114334[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m0.833 ms - 151138[0m
+[0mGET /images/item/real-1465621342992.jpg [32m200 [0m0.299 ms - 308483[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.569 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m1.154 ms - 4493334[0m
+[0mGET /list/0 [36m304 [0m71.204 ms - -[0m
+[0mPOST /logout [32m200 [0m1.317 ms - 47[0m
+user : 7777@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m11.000 ms - 682[0m
+[0mGET /list/0 [32m200 [0m82.181 ms - 30877[0m
+[0mGET /images/item/real-1465616390504.jpg [32m200 [0m1.210 ms - 114334[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m4.878 ms - 151138[0m
+[0mGET /images/item/real-1465621342992.jpg [32m200 [0m1.436 ms - 308483[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m1.640 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m1.523 ms - 4493334[0m
+[0mGET /list/0 [36m304 [0m49.859 ms - -[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m3.554 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m49.435 ms - 4493334[0m
+[0mPOST /join [32m200 [0m6.685 ms - 253[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.436 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.564 ms - 2384441[0m
+user : a@a.a
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m8.912 ms - 348[0m
+[0mGET /list/0 [36m304 [0m53.449 ms - -[0m
+[0mGET /list/0 [36m304 [0m62.060 ms - -[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.459 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.345 ms - 4493334[0m
+[0mGET /images/item/real-1465613387423.jpg [32m200 [0m0.335 ms - 49950[0m
+[0mGET /images/item/real-1465612027255.jpg [32m200 [0m0.631 ms - 72165[0m
+[0mGET /images/item/real-1465610480050.jpg [32m200 [0m0.754 ms - 114334[0m
+[0mGET /images/item/real-1465614903257.jpg [32m200 [0m0.408 ms - 652378[0m
+[0mGET /images/item/real-1465615239803.jpg [32m200 [0m0.403 ms - 4219294[0m
+[0mGET /images/item/real-1465614378121.jpg [32m200 [0m0.401 ms - 1209816[0m
+[0mGET /images/item/real-1465614378121.jpg [32m200 [0m0.814 ms - 1209816[0m
+[0mGET /images/item/real-1465610662595.jpg [32m200 [0m0.464 ms - 265835[0m
+[0mGET /images/item/real-1465614903257.jpg [32m200 [0m1.833 ms - 652378[0m
+[0mGET /images/item/real-1465610769386.jpg [32m200 [0m0.405 ms - 391448[0m
+[0mGET /images/item/real-1465610966623.jpg [32m200 [0m0.433 ms - 683177[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m0.480 ms - 151138[0m
+[0mGET /images/item/real-1465621342992.jpg [32m200 [0m0.369 ms - 308483[0m
+[0mGET /images/item/real-1465614674122.jpg [32m200 [0m0.298 ms - 971069[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.372 ms - 2384441[0m
+[0mGET /images/item/real-1465614674122.jpg [32m200 [0m0.590 ms - 971069[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m1.306 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.428 ms - 2384441[0m
+[0mGET /images/item/real-1465615239803.jpg [32m200 [0m1.014 ms - 4219294[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.332 ms - 4493334[0m
+[0mGET /list/1 [32m200 [0m35.281 ms - 20674[0m
+[0mGET /images/item/real-1465614378121.jpg [32m200 [0m0.461 ms - 1209816[0m
+[0mGET /list/2 [32m200 [0m19.002 ms - 10242[0m
+[0mGET /images/item/real-1465614903257.jpg [32m200 [0m0.484 ms - 652378[0m
+[0mGET /images/item/real-1465613387423.jpg [32m200 [0m0.295 ms - 49950[0m
+[0mGET /images/item/real-1465612027255.jpg [32m200 [0m0.306 ms - 72165[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.550 ms - 4493334[0m
+[0mGET /images/item/real-1465615239803.jpg [32m200 [0m0.379 ms - 4219294[0m
+[0mGET /list/1 [36m304 [0m40.905 ms - -[0m
+[0mGET /list/0 [36m304 [0m49.565 ms - -[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m0.719 ms - 151138[0m
+[0mGET /images/item/real-1465621342992.jpg [32m200 [0m0.588 ms - 308483[0m
+[0mGET /images/item/real-1465614378121.jpg [32m200 [0m0.413 ms - 1209816[0m
+[0mGET /images/item/real-1465610966623.jpg [32m200 [0m0.395 ms - 683177[0m
+[0mGET /images/item/real-1465610769386.jpg [32m200 [0m0.362 ms - 391448[0m
+[0mGET /images/item/real-1465610662595.jpg [32m200 [0m0.348 ms - 265835[0m
+[0mGET /images/item/real-1465557414943.jpg [32m200 [0m0.409 ms - 708240[0m
+[0mGET /images/item/real-1465558295365.jpg [32m200 [0m0.284 ms - 64860[0m
+[0mGET /images/item/real-1465562298122.jpg [32m200 [0m0.387 ms - 354259[0m
+[0mGET /images/item/real-1465558290592.jpg [32m200 [0m0.306 ms - 64860[0m
+[0mGET /images/item/real-1465562243591.jpg [32m200 [0m0.392 ms - 457772[0m
+[0mGET /images/item/real-1465561732793.jpg [32m200 [0m0.288 ms - 2621532[0m
+[0mGET /images/item/real-1465546724108.jpg [32m200 [0m0.395 ms - 114334[0m
+[0mGET /images/item/real-1465559784751.jpg [32m200 [0m0.700 ms - 593150[0m
+[0mGET /images/item/real-1465547572154.jpg [32m200 [0m0.361 ms - 108664[0m
+[0mGET /images/item/real-1465546798064.jpg [32m200 [0m0.295 ms - 108664[0m
+[0mGET /images/item/real-1465548657058.jpg [32m200 [0m0.588 ms - 114334[0m
+[0mGET /images/item/real-1465557286772.jpg [32m200 [0m0.326 ms - 708240[0m
+[0mGET /images/item/real-1465557301366.jpg [32m200 [0m0.402 ms - 708240[0m
+[0mGET /images/item/real-1465558295365.jpg [32m200 [0m0.390 ms - 64860[0m
+[0mGET /images/item/real-1465548556703.jpg [32m200 [0m0.287 ms - 2645561[0m
+[0mGET /images/item/real-1465559784751.jpg [32m200 [0m0.597 ms - 593150[0m
+[0mGET /images/item/real-1465610966623.jpg [32m200 [0m0.267 ms - 683177[0m
+[0mGET /images/item/real-1465610769386.jpg [32m200 [0m0.452 ms - 391448[0m
+[0mGET /images/item/real-1465613387423.jpg [32m200 [0m0.391 ms - 49950[0m
+[0mGET /images/item/real-1465562298122.jpg [32m200 [0m0.499 ms - 354259[0m
+[0mGET /images/item/real-1465557292326.jpg [32m200 [0m1.067 ms - 708240[0m
+[0mGET /images/item/real-1465610513024.jpg [32m200 [0m0.363 ms - 519990[0m
+[0mGET /images/item/real-1465557414943.jpg [32m200 [0m0.401 ms - 708240[0m
+[0mGET /images/item/real-1465615239803.jpg [32m200 [0m0.369 ms - 4219294[0m
+[0mGET /images/item/real-1465616390504.jpg [32m200 [0m0.449 ms - 114334[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m2.725 ms - 151138[0m
+[0mGET /images/item/real-1465614903257.jpg [32m200 [0m0.431 ms - 652378[0m
+[0mGET /images/item/real-1465614378121.jpg [32m200 [0m0.365 ms - 1209816[0m
+[0mGET /listdetail/139 [32m200 [0m13.732 ms - 717[0m
+[0mGET /listdetail/139 [32m200 [0m5.903 ms - 717[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.415 ms - 2384441[0m
+[0mGET /images/profile/real-1465563824121.jpg [32m200 [0m0.388 ms - 4482591[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.622 ms - 4493334[0m
+[0mGET /list/0 [36m304 [0m70.050 ms - -[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m0.452 ms - 151138[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.594 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.587 ms - 4493334[0m
+user : a@a.a
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m10.053 ms - 348[0m
+[0mGET /list/0 [36m304 [0m70.040 ms - -[0m
+user : 6666@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m11.108 ms - 3221[0m
+[0mGET /list/0 [32m200 [0m47.896 ms - 30877[0m
+[0mGET /images/item/real-1465616390504.jpg [32m200 [0m1.977 ms - 114334[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m2.051 ms - 151138[0m
+[0mGET /images/item/real-1465621342992.jpg [32m200 [0m0.524 ms - 308483[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m3.386 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m1.457 ms - 4493334[0m
+[0mGET /list/0 [36m304 [0m52.487 ms - -[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.463 ms - 4493334[0m
+[0mGET /list/0 [36m304 [0m64.674 ms - -[0m
+[0mGET /list/0 [36m304 [0m74.166 ms - -[0m
+user : 6666@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m13.000 ms - 3221[0m
+[0mGET /list/0 [32m200 [0m56.872 ms - 30877[0m
+[0mGET /images/item/real-1465616390504.jpg [32m200 [0m1.720 ms - 114334[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m1.394 ms - 151138[0m
+[0mGET /images/item/real-1465621342992.jpg [32m200 [0m1.436 ms - 308483[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m1.498 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.856 ms - 4493334[0m
+[0mGET /list/0 [36m304 [0m54.675 ms - -[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.674 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.717 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.386 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.849 ms - 4493334[0m
+[0mGET /list/0 [36m304 [0m46.008 ms - -[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.639 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.637 ms - 2384441[0m
+[0mGET /my_profile [32m200 [0m30.205 ms - 9231[0m
+[0mGET /my_profile [32m200 [0m24.309 ms - 9231[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.823 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.495 ms - 4493334[0m
+[0mGET /list/0 [36m304 [0m76.569 ms - -[0m
+[0mGET /images/item/real-1465610662595.jpg [32m200 [0m2.503 ms - 265835[0m
+[0mGET /images/profile/real-1465563824121.jpg [32m200 [0m0.489 ms - 4482591[0m
+[0mGET /images/item/real-1465610769386.jpg [32m200 [0m2.206 ms - 391448[0m
+[0mGET /images/item/real-1465615239803.jpg [32m200 [0m1.760 ms - 4219294[0m
+[0mGET /images/item/real-1465610966623.jpg [32m200 [0m2.115 ms - 683177[0m
+[0mGET /images/item/real-1465610513024.jpg [32m200 [0m2.028 ms - 519990[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.676 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m1.240 ms - 2384441[0m
+user : 6666@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m12.252 ms - 3221[0m
+[0mGET /list/0 [32m200 [0m59.932 ms - 30877[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.835 ms - 4493334[0m
+[0mGET /list/0 [36m304 [0m48.347 ms - -[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.413 ms - 4493334[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m1.593 ms - 4493334[0m
+[0mGET /list/0 [36m304 [0m51.848 ms - -[0m
+[0mGET /list/0 [36m304 [0m65.306 ms - -[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.516 ms - 4493334[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.524 ms - 4493334[0m
+user : 6666@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m12.522 ms - 3221[0m
+[0mGET /list/0 [32m200 [0m72.481 ms - 30877[0m
+[0mGET /images/item/real-1465616390504.jpg [32m200 [0m1.058 ms - 114334[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m0.865 ms - 151138[0m
+[0mGET /images/item/real-1465621342992.jpg [32m200 [0m0.802 ms - 308483[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m1.069 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.374 ms - 4493334[0m
+[0mGET /list/0 [36m304 [0m59.942 ms - -[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.926 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.693 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.577 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.417 ms - 2384441[0m
+user : 6666@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m12.534 ms - 3221[0m
+[0mGET /list/0 [32m200 [0m53.061 ms - 30877[0m
+[0mGET /images/item/real-1465616390504.jpg [32m200 [0m0.694 ms - 114334[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m1.185 ms - 151138[0m
+[0mGET /images/item/real-1465621342992.jpg [32m200 [0m1.225 ms - 308483[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m3.048 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m1.140 ms - 2384441[0m
+[0mGET /list/0 [36m304 [0m50.620 ms - -[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m1.274 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m1.604 ms - 4493334[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.420 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.471 ms - 2384441[0m
+[0mGET /list/0 [36m304 [0m72.865 ms - -[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.907 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m1.009 ms - 2384441[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.645 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.888 ms - 4493334[0m
+user : 6666@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m12.091 ms - 3221[0m
+[0mGET /list/0 [32m200 [0m73.312 ms - 30877[0m
+[0mGET /images/item/real-1465616390504.jpg [32m200 [0m0.639 ms - 114334[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m1.098 ms - 151138[0m
+[0mGET /images/item/real-1465621342992.jpg [32m200 [0m1.194 ms - 308483[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m1.159 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m1.134 ms - 2384441[0m
+[0mGET /list/0 [36m304 [0m49.214 ms - -[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.303 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.442 ms - 4493334[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.374 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.405 ms - 2384441[0m
+user : 6666@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m12.696 ms - 3221[0m
+[0mGET /list/0 [32m200 [0m51.699 ms - 30877[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.440 ms - 4493334[0m
+[0mGET /list/0 [36m304 [0m64.228 ms - -[0m
+user : 6666@naver.com
+됏다시
+docs ? : undefined
+[0mPOST /login [32m200 [0m14.065 ms - 3221[0m
+[0mGET /list/0 [32m200 [0m75.371 ms - 30877[0m
+[0mGET /images/item/real-1465616481131.jpg [32m200 [0m1.071 ms - 151138[0m
+[0mGET /images/item/real-1465616390504.jpg [32m200 [0m0.868 ms - 114334[0m
+[0mGET /images/item/real-1465621342992.jpg [32m200 [0m1.066 ms - 308483[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m1.144 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.597 ms - 2384441[0m
+[0mGET /list/0 [36m304 [0m64.963 ms - -[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.706 ms - 4493334[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.599 ms - 2384441[0m
+[0mGET /images/item/real-1465616600025.jpg [32m200 [0m0.413 ms - 2384441[0m
+[0mGET /images/item/real-1465624158030.jpg [32m200 [0m0.627 ms - 4493334[0m

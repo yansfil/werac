@@ -337,7 +337,6 @@ function updateItem(req,res,next){
       var item = {
         _id : mid,
         has_mc : has_mc,
-        mc : undefined,
         image : image,
         image_size : image_size,
         title : title,

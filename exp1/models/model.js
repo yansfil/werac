@@ -65,55 +65,11 @@ comments : [
   }
 ]
 });
-itemSchema.statics.findAndModify = function (query, sort, doc, options, callback) {
-  return this.collection.findAndModify(query, sort, doc, options, callback);
-}; //findandmodify 추가
-userSchema.statics.findAndModify = function (query, sort, doc, options, callback) {
-  return this.collection.findAndModify(query, sort, doc, options, callback);
-}; //findandmodify 추가
-
-
 var CounterSchema = new mongoose.Schema({
   _id : {type : String},
   seq : {type: Number, default : 0}
 });
+
 mongoose.model('counter', CounterSchema);
 mongoose.model('User', userSchema);
 mongoose.model('Item', itemSchema);
-
-//auto increment 부분! user, item, comment의 id를 부여해준다.
-
-// userSchema.pre('save', function(next){
-//   var doc = this;
-//   counterModel.findOneAndUpdate({_id:'userId'},{$inc: {seq : 1}},{upsert:true, new:true},function(err,pre_doc){
-//     if(err) return next(err);
-//     console.log('pre_doc',pre_doc);
-//     doc._id = pre_doc.seq;
-//     next();
-//   })
-// });
-
-// itemSchema.pre("save", true, function(next, done){
-//   var doc = this;
-//   console.log(doc.updated);
-//     counterModel.findOneAndUpdate({_id:'itemId'},{$inc: {seq : 1}},{upsert:true, new:true},function(err,pre_doc){
-//       if(err) done(err);
-//       else if(!doc.updated){
-//         doc._id = pre_doc.seq;
-//         done();
-//       }else{
-//         done();
-//       }
-//     });
-//     next();
-// });
-//
-// itemSchema.pre('save', function(next){
-//   var doc = this;
-//   counterModel.findOneAndUpdate({_id:'commentId'},{$inc: {seq : 1}},{upsert:true, new:true},function(err,pre_doc){
-//     if(err) return next(err);
-//     console.log('pre_doc',pre_doc);
-//     doc.comments[0]._id = pre_doc.seq;
-//     next();
-//   })
-// });
