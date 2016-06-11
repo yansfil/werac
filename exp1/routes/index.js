@@ -9,6 +9,8 @@ var url = require('url');
 var async = require('async');
 var multer = require('multer');//image 저장하는 모듈 multer
 var sizeOf = require('image-size'); //image 크기 알아보는 모듈
+var gcm = require('node-gcm');
+var sender = new gcm.Sender('AIzaSyCjtGpU0-erdsqTsJ5SSCooyxPpK8xau0M');
 
 
 <!--전역변수 및 image처리 변수 선언하는 곳 -->
@@ -40,22 +42,26 @@ var item_storage = multer.diskStorage({ //item의 사진 저장소 정보
 });
 var upload1 = multer({ storage: profile_storage}); //프로필 이미지에 대한 multer
 var upload2 = multer({ storage: item_storage }); //모임 이미지에 대한 multer
-
-var sessionId = null; //세션 userid의 전역변수
+var sessionId;
 var UserModel = db.model('User');
 var ItemModel = db.model('Item');
 
 
 <!--router 실행부 -->
-
-router.get('/',function(req,res,next){
-  res.render('index', { title: 'Express', userid : req.session.userid });
-});
+var ItemModel = db.model('Item');
+// router.get('/',function(req,res,next){
+//     UserModel.findOneAndUpdate({_id: 15},{$push:{alarm:{"status":2, "mid":78,"comment" : "나다라마바"}, history_mc:78}},function(err,docs){
+//         if(err) return callback1(err);
+//         var gcm_token = [docs.gcm_token];
+//         console.log('gcm toooook :',docs.gcm_token);
+//         gcm_push(comment1,gcm_token);
+//     });
+// });
 router.post('/join', join); //회원가입하기
 router.post('/login' , login); //로그인하기
 router.post('/logout', logout); //로그아웃하기
-router.get('/users', showUsers); //유저 전체정보 
-router.get('/my_profile/', showUser); //마이페이지 정보
+router.get('/users', showUsers); //유저 전체정보
+router.get('/my_profile', showUser); //마이페이지 정보
 router.get('/list/0', showLists);//홈화면 리스트
 router.get('/list/1',showList1);// 진행단게 리스트들
 router.get('/list/2', showList2); // 참가, 완료단계 리스트들
@@ -63,21 +69,21 @@ router.get('/listdetail/:mid', showListDetail); //mid에 따른 상세정보
 router.get('/mc_profile/:uid', showMcProfile); //진행자에 대한 정보 보기
 router.get('/creator_profile/:uid', showCreatorProfile); //개설자에 대한 정보 보기
 router.get('/listdetail/:mid/guests', showGuestLists); //모임의 참여자들에 대한 정보 보기
+router.get('/my_profile/alarm',showAlarm); //알림보기
 router.post('/change/:mid', changeStatus); //제안 -> 참가상태 전환
 router.post('/listdetail/:mid/like', addLike); //모임의 좋아요
 router.post('/listDetail/:mid/comment', addComment); //댓글 달기
-router.post('/listDetail/:mid/reply/:id', addReply); //댓글에 답글달기
-router.post('/listDetail/:mid/clike/:id', addCLike); //댓글에 좋아요하기
-router.post('/apply/:mid/:uid',applyMc); //진행자 지원하기 (alarm status 1)
-router.post('/apply_result/:mid/:uid/:result',resultMc); //진행자 지원결과 보기 (alarm status 2)
+router.post('/listDetail/:mid/comment-edit', editComment); //댓글 수정
+router.post('/listDetail/:mid/comment-delete', deleteComment); //댓글 삭제
+router.post('/listDetail/:mid/reply', addReply); //댓글에 답글달기
+router.post('/listDetail/:mid/clike', addCLike); //댓글에 좋아요하기
+router.post('/participate/:mid', participate); //모임에 참여하기
+router.post('/apply/:mid',applyMc); //진행자 지원하기 (alarm status 1)
+router.post('/apply_result/:mid',resultMc); //진행자에게 지원결과 보내기 (alarm status 2)
 router.post('/create', upload2.single('image'), saveItem); //모임 등록하기
 router.post('/update/:mid', upload2.single('image'), updateItem); //모임 수정하기
 router.post('/my_profile',upload1.single('profile_image'), updateUser); //프로필 수정하기
-router.post('/upload1', upload2.single('image'), function(req, res, next) {
-	console.log('req.body=', req.body);
-	console.log('req.file=', req.file);
-	res.json({result:'OK'});
-});
+
 
 <!--각 route에 대한 function 선언하는 곳 -->
 
@@ -107,7 +113,9 @@ function join(req,res,next){
 function login(req,res,next){
   var email = req.body.email;
   var pw = req.body.pw ;
-  queries.postLogin(email,pw,function(type,docs){
+  var gcm_token = req.body.gcmtoken;
+  console.log('user :' , email);
+  queries.postLogin(email,pw,gcm_token,function(type,docs){
     if(type==1){
       req.session.userid = docs._id;  //session에 uid 넣기
       sessionId = req.session.userid; //전역변수에 세션 값 넣기
@@ -115,7 +123,7 @@ function login(req,res,next){
         res.json({success: 1 , message : "OK", result : docs});
       }
     }
-    else res.json({success: 0 , message : "NO", result : docs});
+    else res.json({success: 0 , message : "NO"});
   });
 }; //로그인하기
 
@@ -125,7 +133,7 @@ function logout(req,res,next){
     if(err) return res.json({success: 0 , message : "NO", result : "logout failed"});
     res.json({success: 1 , message : "OK", result : "logout!"});
   })
-}
+} //로그아웃하기
 
 function showUsers(req, res, next){
   queries.getUsers(function(type,docs){
@@ -135,7 +143,7 @@ function showUsers(req, res, next){
 }; //유저 전체정보
 
 function showUser(req,res,next){
-  var uid = sessionId
+  var uid = req.session.userid;
   queries.getProfile('my',uid,function(type,docs){
     if(type==1) res.json({success: 1 , message : "OK", result : docs});
     else res.json({success: 0 , message : "NO", result : docs});
@@ -189,15 +197,25 @@ function showCreatorProfile(req,res,next){
 
 function showGuestLists(req,res,next){
   var mid = req.params.mid;
-  queries.getGuestLists(mid, function(type,docs){
-    if(type==1) res.json({success: 1 , message : "OK", result : docs});
-    else res.json({success: 0 , message : "NO", result : docs});
+  var uid = req.session.userid;
+  queries.getGuestLists(mid, uid,function(type,docs){
+    if(type== 0) res.json({success: 0 , message : "NO", result : docs});
+    else res.json({success : 1 , messange : "yes" , result : docs});
   })
 }; //mid에 따른 참여자들 정보
 
+function showAlarm(req,res,next){
+    var uid = req.session.userid;
+    console.log("알람보기");
+    queries.getAlarmList(uid,function(type,docs){
+        if(type==1) res.json({success: 1 , message : "OK", result : docs});
+        else res.json({success: 0 , message : "NO", result : docs});
+    });
+};
+
 function addLike(req,res,next){
   var mid = req.params.mid;
-  var uid = sessionId;
+  var uid = req.session.userid;
   queries.postLike(mid,uid,function(type,docs){
     if(type==1) res.json({success: 1 , message : "OK", result : docs});
     else if(type==2) res.json({success: 2 , message : "OK", result : docs});
@@ -209,7 +227,6 @@ function saveItem(req,res,next){
   console.log('req.body = ', req.body);
   console.log(req.file);
   console.log('image로 저장될 url ',"http://52.79.178.195:3000/images/item/"+req.file.filename);
-  console.log('sessionId : ', sessionId);
   async.waterfall([  //async로 size를 얻어온후 결과값을 post요청한다.
     function(callback){
       var imagePath ='public/images/item/'+req.file.filename; //이미지 실제path
@@ -221,7 +238,7 @@ function saveItem(req,res,next){
         callback(null,image_size);
       });
     },function(image_size,callback){
-      var uid = sessionId;
+      var uid = req.session.userid;
       var has_mc = req.body.has_mc;
       var imagePath ='public/images/item/'+req.file.filename;
       var image = "http://52.79.178.195:3000/images/item/"+req.file.filename;
@@ -251,8 +268,8 @@ function saveItem(req,res,next){
         fee : fee,
         limit_num : limit_num
       });
-      if(!has_mc){
-        item.mc = uid
+      if(has_mc=="false"){
+          item.mc = uid;
       }
       callback(null,item);
     }
@@ -269,8 +286,9 @@ function saveItem(req,res,next){
 
 function updateItem(req,res,next){
   var mid = req.params.mid;
-  var uid = sessionId;
+  var uid = req.session.userid;
   var has_mc = req.body.has_mc;
+  console.log('has_mc : ',has_mc);
   async.waterfall([
     function(callback){
       if(req.file){ //이미지파일을 변경했을 때
@@ -319,6 +337,7 @@ function updateItem(req,res,next){
       var item = {
         _id : mid,
         has_mc : has_mc,
+        mc : undefined,
         image : image,
         image_size : image_size,
         title : title,
@@ -333,7 +352,7 @@ function updateItem(req,res,next){
         limit_num : limit_num
       };
       if(!image_size){ //수정이 안됐을 때 image_size 처리
-        var item = {
+          item = {
           _id : mid,
           has_mc : has_mc,
           image : image,
@@ -348,8 +367,8 @@ function updateItem(req,res,next){
           fee : fee,
           limit_num : limit_num
         };
-        console.log(item);
       }
+     console.log('item : ', item);
       callback(null,item);
     }
   ],function(err,item){
@@ -366,19 +385,41 @@ function updateItem(req,res,next){
 function addComment(req,res,next){
   var mid = req.params.mid;
   var content = req.query.content;
-  var uid = sessionId;
+  var uid = req.session.userid;
   queries.postComment(mid,uid,content,function(type,docs){
     if(type==1) res.json({success: 1 , message : "OK", result : docs});
     else res.json({success: 0 , message : "NO", result : docs});
   });
 };
 
+function editComment(req,res,next){
+    var mid = req.params.mid;
+    var uid = req.session.userid;
+    var cid = req.body.cid;
+    var content = req.query.content;
+    queries.postEditedComment(mid,cid,uid,content,function(type,docs){
+        if(type==1) res.json({success: 1 , message : "OK", result : docs});
+        else res.json({success: 0 , message : "NO", result : docs});
+    });
+};
+
+function deleteComment(req,res,next){
+    var mid = req.params.mid;
+    var uid = req.session.userid;
+    var cid = req.body.cid;
+    console.log(cid);
+    queries.postDeleteComment(mid,cid,uid,function(type,docs){
+        if(type==1) res.json({success: 1 , message : "OK", result : docs});
+        else res.json({success: 0 , message : "NO", result : docs});
+    });
+}
+
 function addReply(req,res,next){
   var mid = req.params.mid;
-  var id = req.params.id;
+  var cid = req.body.cid;
   var content = req.query.content;
-  var uid = req.query.uid;
-  queries.postReply(mid,id,uid,content,function(type,docs){
+  var uid = req.session.userid;
+  queries.postReply(mid,cid,uid,content,function(type,docs){
     if(type==1) res.json({success: 1 , message : "OK", result : docs});
     else res.json({success: 0 , message : "NO", result : docs});
   });
@@ -386,9 +427,9 @@ function addReply(req,res,next){
 
 function addCLike(req,res,next){
   var mid = req.params.mid;
-  var id = req.params.id;
-  var uid = req.query.uid;
-  queries.postCLike(mid,id,uid,function(type,docs){
+  var cid = req.body.cid;
+  var uid = req.session.userid;
+  queries.postCLike(mid,cid,uid,function(type,docs){
     if(type==1) res.json({success: 1 , message : "OK", result : docs});
     else if(type==2) res.json({success: 2 , message : "OK", result : docs});
     else res.json({success: 0 , message : "NO", result : docs});
@@ -397,7 +438,7 @@ function addCLike(req,res,next){
 
 function changeStatus(req,res,next){
   var mid = req.params.mid;
-  var uid = sessionId;
+  var uid = req.session.userid;
   console.log(123456);
   queries.getChangedStatus(mid,uid,function(type, docs){
     if(type==1) res.json({success: 1 , message : "OK", result : docs});
@@ -406,7 +447,7 @@ function changeStatus(req,res,next){
 };
 
 function updateUser(req,res,next){
-  var uid = sessionId;
+  var uid = req.session.userid;
   async.waterfall([
     function(callback){
       if(req.file){ //이미지파일을 변경했을 때
@@ -463,7 +504,7 @@ function updateUser(req,res,next){
 
 function applyMc(req,res,next){
   var mid = req.params.mid;
-  var uid = req.params.uid;
+  var uid = req.session.userid;
 
   queries.postApply(mid,uid,function(type,docs){
     if(type==1) res.json({success: 1 , message : "OK", result : docs});
@@ -471,11 +512,21 @@ function applyMc(req,res,next){
   });
 };
 
+function participate(req,res,next){
+    var mid = req.params.mid;
+    var uid = req.session.userid;
+    queries.postParticipation(mid,uid,function(type,docs){
+        if(type==1) res.json({success: 1 , message : "OK", result : docs});
+        else res.json({success: type , message : "NO", result : docs});
+    })
+}
+
 function resultMc(req,res,next){
   var mid = req.params.mid;
-  var uid = req.params.uid;
-  var result = req.params.result;
-  queries.postApplyResult(mid,uid,result,function(type,docs){
+  var creatorId = req.session.userid;
+  var uid = req.body.uid;
+  var result = req.body.result;
+  queries.postApplyResult(mid,creatorId,uid,result,function(type,docs){
     if(type==1) res.json({success: 1 , message : "OK", result : docs});
     else res.json({success: 0 , message : "NO", result : docs});
   })
