@@ -1,0 +1,187 @@
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-14T06:34:52.864Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T06:35:05.250Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-14T06:35:47.904Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-14T06:40:43.452Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T06:42:11.781Z"}
+{"level":"warn","message":"updated user :  {\n    \"_id\": 2,\n    \"email\": \"1111@naver.com\",\n    \"pw\": \"eb9bba8a04e697e4d7164c8406ba87a7\",\n    \"name\": \"예디\",\n    \"phone\": \"01011111111\",\n    \"__v\": 0,\n    \"gcm_token\": \"fUP_OV7DDlg:APA91bGNcjcjbjiGnRzXftgrNL9eU9BYBR3I2KH6s3WgeQ5QdmSLN3UssM_ICZaETaxKSx4mJINQsuAVwePP-BwrJB30Oyce8oajW-hv-1RKOn8AuAFHyIsgKgVGc_0O0Y5izhfL0E6H\",\n    \"profile_image\": \"http://52.79.178.195:3000/images/profile/real-1465886749904.jpg\",\n    \"comment\": \"\",\n    \"alarm\": [\n        {\n            \"comment\": \"룰 브레이커 모임에 진행자 신청이 들어왔습니다. 프로필을 확인해보세요.\",\n            \"uid\": 1,\n            \"mid\": 5,\n            \"status\": 1,\n            \"_id\": \"575f989bc68a025e0b9ff4d0\",\n            \"date\": \"2016-06-14T05:39:39.581Z\"\n        }\n    ],\n    \"history_like\": [],\n    \"history_mc\": [],\n    \"history_join\": [],\n    \"history_create\": [\n        2,\n        3,\n        4,\n        5,\n        6\n    ],\n    \"date\": \"2016-06-14T04:30:20.717Z\"\n}","timestamp":"2016-06-14T06:45:50.448Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-14T06:45:56.577Z"}
+{"level":"warn","message":"updated user :  {\n    \"_id\": 2,\n    \"email\": \"1111@naver.com\",\n    \"pw\": \"eb9bba8a04e697e4d7164c8406ba87a7\",\n    \"name\": \"예디\",\n    \"phone\": \"01011111111\",\n    \"__v\": 0,\n    \"gcm_token\": \"fUP_OV7DDlg:APA91bGNcjcjbjiGnRzXftgrNL9eU9BYBR3I2KH6s3WgeQ5QdmSLN3UssM_ICZaETaxKSx4mJINQsuAVwePP-BwrJB30Oyce8oajW-hv-1RKOn8AuAFHyIsgKgVGc_0O0Y5izhfL0E6H\",\n    \"profile_image\": \"http://52.79.178.195:3000/images/profile/real-1465886749904.jpg\",\n    \"comment\": \"안뇽하세요 예디에요!\",\n    \"alarm\": [\n        {\n            \"comment\": \"룰 브레이커 모임에 진행자 신청이 들어왔습니다. 프로필을 확인해보세요.\",\n            \"uid\": 1,\n            \"mid\": 5,\n            \"status\": 1,\n            \"_id\": \"575f989bc68a025e0b9ff4d0\",\n            \"date\": \"2016-06-14T05:39:39.581Z\"\n        }\n    ],\n    \"history_like\": [],\n    \"history_mc\": [],\n    \"history_join\": [],\n    \"history_create\": [\n        2,\n        3,\n        4,\n        5,\n        6\n    ],\n    \"date\": \"2016-06-14T04:30:20.717Z\"\n}","timestamp":"2016-06-14T06:46:01.545Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-14T06:47:39.746Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-14T06:48:14.569Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:02:44.833Z"}
+{"level":"warn","message":"login ) user : 6666@naver.com","timestamp":"2016-06-14T07:10:56.645Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:11:07.475Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:11:28.882Z"}
+{"level":"warn","message":"login ) user : 6666@naver.com","timestamp":"2016-06-14T07:11:59.747Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:12:10.640Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:12:57.028Z"}
+{"level":"warn","message":"login ) user : 6666@naver.com","timestamp":"2016-06-14T07:13:18.783Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:13:31.383Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:13:47.017Z"}
+{"level":"warn","message":"login ) user : 6666@naver.com","timestamp":"2016-06-14T07:14:08.719Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:14:32.512Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:14:40.122Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:15:34.724Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:16:43.940Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:17:14.108Z"}
+{"level":"warn","message":"login ) user : 6666@naver.com","timestamp":"2016-06-14T07:17:58.409Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:18:08.061Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:19:07.303Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:19:12.522Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:22:06.983Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:22:10.145Z"}
+{"level":"warn","message":"login ) user : 3333@naver.com","timestamp":"2016-06-14T07:24:22.473Z"}
+{"level":"warn","message":"login ) user : 4444@naver.com","timestamp":"2016-06-14T07:25:01.111Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:26:53.241Z"}
+{"multicast_id":6155465996636042000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465889271776386%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-14T07:27:53.761Z"}
+{"multicast_id":8269434323304025000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465889281356022%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-14T07:28:03.316Z"}
+{"level":"warn","message":"login ) user : 3333@naver.com","timestamp":"2016-06-14T07:29:04.705Z"}
+{"multicast_id":5021203442325007000,"success":0,"failure":1,"canonical_ids":0,"results":[{"error":"MissingRegistration"}],"level":"warn","message":"","timestamp":"2016-06-14T07:29:09.735Z"}
+{"multicast_id":8963157269651403000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465889347781917%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-14T07:29:09.740Z"}
+{"level":"warn","message":"login ) user : 4444@naver.com","timestamp":"2016-06-14T07:29:23.571Z"}
+{"level":"warn","message":"login ) user : 4444@naver.com","timestamp":"2016-06-14T07:31:03.079Z"}
+{"level":"warn","message":"login ) user : 3333@naver.com","timestamp":"2016-06-14T07:31:03.647Z"}
+{"level":"warn","message":"login ) user : 3333@naver.com","timestamp":"2016-06-14T07:31:19.214Z"}
+{"level":"warn","message":"login ) user : 4444@naver.com","timestamp":"2016-06-14T07:32:32.120Z"}
+{"level":"warn","message":"login ) user : 4444@naver.com","timestamp":"2016-06-14T07:34:06.664Z"}
+{"multicast_id":5126363360671554000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465889649567352%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-14T07:34:11.538Z"}
+{"level":"warn","message":"login ) user : 3333@naver.com","timestamp":"2016-06-14T07:34:16.305Z"}
+{"level":"warn","message":"login ) user : 3333@naver.com","timestamp":"2016-06-14T07:34:27.734Z"}
+{"multicast_id":7934383892098590000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465889672507650%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-14T07:34:34.470Z"}
+{"level":"warn","message":"login ) user : 4444@naver.com","timestamp":"2016-06-14T07:34:42.788Z"}
+{"multicast_id":8720897857675506000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465889690591874%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-14T07:34:52.549Z"}
+{"level":"warn","message":"login ) user : 4444@naver.com","timestamp":"2016-06-14T07:34:55.069Z"}
+{"level":"warn","message":"updated user :  {\n    \"_id\": 4,\n    \"email\": \"4444@naver.com\",\n    \"pw\": \"8acca531c753ced2cbdcd708b86c7cfe\",\n    \"name\": \"사치리\",\n    \"phone\": \"01044444444\",\n    \"__v\": 0,\n    \"gcm_token\": \"dADkeJLceQY:APA91bG8JBIUlvhUsnRKYclZq4rKYAe0_INbGTndzpW2sMNFfOIWTbdeiQbR4mfqDRzACC1Yb6WM5EQyjaQrVXHmRRnXM2HM4YLpHPPwZHe5j7YmCSL3AOqqFKDbohL2QWIFzQ3GTLTP\",\n    \"profile_image\": \"http://52.79.178.195:3000/images/profile/real-1465889724944.jpg\",\n    \"comment\": \"\",\n    \"alarm\": [\n        {\n            \"comment\": \"도둑잡으러가요 모임의 진행자로 선정되었습니다\",\n            \"mid\": 9,\n            \"status\": 2,\n            \"_id\": \"575fb38a9cc5d5ab1ac36bf7\",\n            \"date\": \"2016-06-14T07:34:34.280Z\"\n        },\n        {\n            \"status\": 3,\n            \"mid\": 9,\n            \"comment\": \"도둑잡으러가요 모임의 단계가 진행단계에서 참가단계로 변경되었습니다.\",\n            \"_id\": \"575fb39c9cc5d5ab1ac36bf8\",\n            \"date\": \"2016-06-14T07:34:52.361Z\"\n        }\n    ],\n    \"history_like\": [\n        7,\n        9\n    ],\n    \"history_mc\": [\n        9\n    ],\n    \"history_join\": [],\n    \"history_create\": [],\n    \"date\": \"2016-06-14T07:24:50.851Z\"\n}","timestamp":"2016-06-14T07:35:24.977Z"}
+{"level":"warn","message":"login ) user : 4444@naver.com","timestamp":"2016-06-14T07:36:05.725Z"}
+{"level":"warn","message":"login ) user : 5555@naver.com","timestamp":"2016-06-14T07:36:55.088Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:37:07.607Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:37:31.603Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:37:57.941Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:44:25.455Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:54:41.506Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T07:59:11.015Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:11:11.032Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:12:38.059Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:14:01.927Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-14T08:15:02.025Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:15:23.014Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:16:45.335Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:18:11.884Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:24:59.038Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:26:31.416Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:32:00.863Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:37:26.497Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:38:09.337Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:38:59.537Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:39:16.376Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:40:29.752Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:40:45.252Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:42:40.474Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:42:58.026Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:46:04.287Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:54:46.412Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:55:02.916Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:57:26.890Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:57:48.450Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:57:49.618Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:57:51.599Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:57:52.477Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:57:55.316Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T08:59:14.555Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-14T08:59:54.905Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-14T09:00:03.908Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T09:01:45.793Z"}
+{"level":"warn","message":"updated user :  {\n    \"_id\": 2,\n    \"email\": \"1111@naver.com\",\n    \"pw\": \"eb9bba8a04e697e4d7164c8406ba87a7\",\n    \"name\": \"김예지\",\n    \"phone\": \"01011111111\",\n    \"__v\": 0,\n    \"gcm_token\": \"\",\n    \"profile_image\": \"http://52.79.178.195:3000/images/profile/real-1465894941325.jpg\",\n    \"comment\": \"안녕하세요 예지에요!\",\n    \"alarm\": [],\n    \"history_like\": [],\n    \"history_mc\": [],\n    \"history_join\": [],\n    \"history_create\": [\n        2,\n        3,\n        4,\n        5,\n        6,\n        10\n    ],\n    \"date\": \"2016-06-14T08:59:52.467Z\"\n}","timestamp":"2016-06-14T09:02:21.869Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T09:02:49.262Z"}
+{"multicast_id":9160754823919203000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465894989207669%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-14T09:03:11.197Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T09:03:56.057Z"}
+{"multicast_id":6474233633133475000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465895236354473%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-14T09:07:18.324Z"}
+{"level":"error","message":"gcm_push ) err :  400","timestamp":"2016-06-14T09:07:36.486Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T09:11:36.070Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T09:17:28.393Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T09:21:28.765Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T09:21:33.821Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T09:21:44.836Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T09:26:15.573Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T09:28:37.698Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T09:30:38.152Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T09:35:20.738Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T09:35:31.233Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-14T09:35:53.897Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-14T09:56:54.756Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-14T10:47:47.019Z"}
+{"level":"warn","message":"updated user :  {\n    \"_id\": 1,\n    \"email\": \"2222@naver.com\",\n    \"pw\": \"119c818f103cd7c93083b08d9b64bc35\",\n    \"name\": \"이호연\",\n    \"phone\": \"01056080230\",\n    \"__v\": 0,\n    \"gcm_token\": \"f2aX3ahLwN0:APA91bH4mzZSN2SHHN-Qtif3KAVWFxqlY9jfBQdi_MjLtH5D5zZo43Vdhc7VMyxHeTwpnrJzEaGgt9gIaIit0-_cgvaeAVicW1JJid56LD5zcHsQs--g0tXue74FYRz4UTCgjwukwQ9T\",\n    \"profile_image\": \"http://52.79.178.195:3000/images/profile/real-1465884389701.jpg\",\n    \"comment\": \"안녀엉\",\n    \"alarm\": [\n        {\n            \"status\": 2,\n            \"mid\": 5,\n            \"comment\": \"룰 브레이커 모임의 진행자 신청에 떨어졌습니다\",\n            \"_id\": \"575fc958f43a1df31e383c93\",\n            \"date\": \"2016-06-14T09:07:36.313Z\"\n        }\n    ],\n    \"history_like\": [\n        3\n    ],\n    \"history_mc\": [\n        5\n    ],\n    \"history_join\": [],\n    \"history_create\": [],\n    \"date\": \"2016-06-14T04:28:09.067Z\"\n}","timestamp":"2016-06-14T10:48:35.173Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-14T11:04:33.658Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-14T11:52:48.793Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-15T00:14:41.208Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-15T00:15:33.447Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T00:41:06.737Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T00:50:38.804Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T01:24:15.082Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T01:24:27.079Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-15T01:26:11.906Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T01:34:46.035Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-15T01:36:08.442Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T01:36:15.100Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-15T01:38:11.538Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T02:18:18.529Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T02:23:19.271Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T02:23:46.372Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T02:23:48.560Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T02:24:15.320Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T02:24:17.538Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T02:24:28.668Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T02:24:33.703Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T02:24:36.777Z"}
+{"multicast_id":8169257456989858000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465957494640735%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-15T02:24:56.632Z"}
+{"multicast_id":5984571116186300000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465957494698563%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-15T02:24:56.687Z"}
+{"multicast_id":8211331157552068000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465957548668900%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-15T02:25:50.668Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-15T02:26:18.414Z"}
+{"multicast_id":7140534940961129000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465957622752474%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-15T02:27:04.755Z"}
+{"multicast_id":5329981515255586000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465957636980950%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-15T02:27:18.967Z"}
+{"multicast_id":8582405047454156000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465957645369200%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-15T02:27:27.368Z"}
+{"multicast_id":6949884897063316000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465957861205597%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-15T02:31:03.211Z"}
+{"multicast_id":5249113929611934000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465957863134021%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-15T02:31:05.140Z"}
+{"level":"warn","message":"login ) user : 6666@naver.comee","timestamp":"2016-06-15T02:31:17.956Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T02:32:36.782Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T02:38:15.318Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-15T02:41:07.934Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-15T03:03:00.333Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T03:04:33.382Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-15T03:33:29.771Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T05:04:49.943Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T05:11:32.779Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T06:06:18.701Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T06:27:45.090Z"}
+{"multicast_id":6603140772830474000,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1465972880938642%e54dd182f9fd7ecd"}],"level":"warn","message":"","timestamp":"2016-06-15T06:41:22.949Z"}
+{"level":"warn","message":"login ) user : 2222@naver.com","timestamp":"2016-06-15T06:43:51.833Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T06:48:38.848Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T06:50:30.674Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T06:53:01.097Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T06:53:28.557Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T07:10:25.603Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T07:15:02.941Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T07:17:05.315Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T07:19:12.550Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T07:35:18.942Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T07:39:20.959Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T07:43:23.992Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T07:49:09.155Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T07:53:13.116Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T07:53:22.723Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T08:12:47.947Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T08:13:26.816Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T08:15:15.163Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T08:17:19.177Z"}
+{"level":"warn","message":"login ) user : 1111@naver.com","timestamp":"2016-06-15T08:19:17.622Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T14:02:19.737Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T16:57:22.119Z"}
+{"level":"warn","message":"updated user :  {\n    \"_id\": 9,\n    \"email\": \"j5586kr@gmail.com\",\n    \"pw\": \"f45ea7cd61f3c2859ecf08be0dd2d558\",\n    \"name\": \"우석\",\n    \"phone\": \"01029925586\",\n    \"__v\": 0,\n    \"gcm_token\": \"cCUzYrTI7e4:APA91bHyCJNLdGZfilgQYu7-EY7NfLMHCwE0hBU1O1zLEEGcu6Qza6xTHnTPWDqwGAvqGodobAMQ0NFtYnW6fykP-rXLDM1yxYLkP_OLG-EJVVG3vtkVUv1Y4Nr23v9KOjhm5ZbWro4X\",\n    \"profile_image\": \"http://52.79.178.195:3000/images/profile/real-1466010557411.jpg\",\n    \"comment\": \"\",\n    \"alarm\": [],\n    \"history_like\": [\n        18\n    ],\n    \"history_mc\": [],\n    \"history_join\": [],\n    \"history_create\": [\n        19,\n        20\n    ],\n    \"date\": \"2016-06-15T07:10:17.275Z\"\n}","timestamp":"2016-06-15T17:09:17.970Z"}
+{"level":"warn","message":"updated user :  {\n    \"_id\": 9,\n    \"email\": \"j5586kr@gmail.com\",\n    \"pw\": \"f45ea7cd61f3c2859ecf08be0dd2d558\",\n    \"name\": \"W\",\n    \"phone\": \"01029925586\",\n    \"__v\": 0,\n    \"gcm_token\": \"cCUzYrTI7e4:APA91bHyCJNLdGZfilgQYu7-EY7NfLMHCwE0hBU1O1zLEEGcu6Qza6xTHnTPWDqwGAvqGodobAMQ0NFtYnW6fykP-rXLDM1yxYLkP_OLG-EJVVG3vtkVUv1Y4Nr23v9KOjhm5ZbWro4X\",\n    \"profile_image\": \"http://52.79.178.195:3000/images/profile/real-1466010699346.jpg\",\n    \"comment\": \"\",\n    \"alarm\": [],\n    \"history_like\": [\n        18\n    ],\n    \"history_mc\": [],\n    \"history_join\": [],\n    \"history_create\": [\n        19,\n        20\n    ],\n    \"date\": \"2016-06-15T07:10:17.275Z\"\n}","timestamp":"2016-06-15T17:11:39.368Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T17:49:19.613Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T17:49:47.227Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T17:50:20.716Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T17:52:18.698Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T17:52:37.055Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T17:55:39.604Z"}
+{"level":"warn","message":"login ) user : j5586kr@gmail.com","timestamp":"2016-06-15T21:36:51.541Z"}

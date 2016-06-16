@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var uri = 'mongodb://localhost/werac-dummy';
+var uri = 'mongodb://localhost/werac';
 var options = {
   server : {poolsize : 100}
 };

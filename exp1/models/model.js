@@ -4,6 +4,7 @@ var db = require('./db.js');
 var userSchema = mongoose.Schema({
   _id : Number,
   email : String,
+  fb_id : String,
   pw : String,
   fb_token : String,
   gcm_token : String,

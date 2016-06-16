@@ -1,11 +1,11 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'i', '--save', 'redus' ]
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', '--save', 'winston' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.37
 4 verbose node symlink /usr/bin/node
 5 verbose readDependencies using package.json deps
-6 verbose cache add [ 'redus', null ]
-7 verbose cache add name=undefined spec="redus" args=["redus",null]
+6 verbose cache add [ 'winston', null ]
+7 verbose cache add name=undefined spec="winston" args=["winston",null]
 8 verbose parsed url { protocol: null,
 8 verbose parsed url   slashes: null,
 8 verbose parsed url   auth: null,
@@ -15,56 +15,120 @@
 8 verbose parsed url   hash: null,
 8 verbose parsed url   search: null,
 8 verbose parsed url   query: null,
-8 verbose parsed url   pathname: 'redus',
-8 verbose parsed url   path: 'redus',
-8 verbose parsed url   href: 'redus' }
-9 silly lockFile 3c05d3e9-redus redus
-10 verbose lock redus /home/ubuntu/.npm/3c05d3e9-redus.lock
-11 silly lockFile 3c05d3e9-redus redus
-12 silly lockFile 3c05d3e9-redus redus
-13 verbose addNamed [ 'redus', '' ]
+8 verbose parsed url   pathname: 'winston',
+8 verbose parsed url   path: 'winston',
+8 verbose parsed url   href: 'winston' }
+9 silly lockFile e2f3e36e-winston winston
+10 verbose lock winston /home/ubuntu/.npm/e2f3e36e-winston.lock
+11 silly lockFile e2f3e36e-winston winston
+12 silly lockFile e2f3e36e-winston winston
+13 verbose addNamed [ 'winston', '' ]
 14 verbose addNamed [ null, '*' ]
-15 silly lockFile 69f16bd3-redus redus@
-16 verbose lock redus@ /home/ubuntu/.npm/69f16bd3-redus.lock
-17 silly addNameRange { name: 'redus', range: '*', hasData: false }
-18 verbose request where is /redus
+15 silly lockFile 9aa54492-winston winston@
+16 verbose lock winston@ /home/ubuntu/.npm/9aa54492-winston.lock
+17 silly addNameRange { name: 'winston', range: '*', hasData: false }
+18 verbose request where is /winston
 19 verbose request registry https://registry.npmjs.org/
-20 verbose request id 7870dd4589583a17
-21 verbose url raw /redus
-22 verbose url resolving [ 'https://registry.npmjs.org/', './redus' ]
-23 verbose url resolved https://registry.npmjs.org/redus
-24 verbose request where is https://registry.npmjs.org/redus
-25 info trying registry request attempt 1 at 07:16:58
-26 http GET https://registry.npmjs.org/redus
-27 http 404 https://registry.npmjs.org/redus
-28 silly registry.get cb [ 404,
-28 silly registry.get   { 'content-type': 'application/json',
-28 silly registry.get     'cache-control': 'max-age=0',
-28 silly registry.get     'content-length': '2',
-28 silly registry.get     'accept-ranges': 'bytes',
-28 silly registry.get     date: 'Tue, 07 Jun 2016 07:16:57 GMT',
-28 silly registry.get     via: '1.1 varnish',
-28 silly registry.get     age: '0',
-28 silly registry.get     connection: 'keep-alive',
-28 silly registry.get     'x-served-by': 'cache-itm7421-ITM',
-28 silly registry.get     'x-cache': 'MISS',
-28 silly registry.get     'x-cache-hits': '0',
-28 silly registry.get     'x-timer': 'S1465283816.880813,VS0,VE151',
-28 silly registry.get     vary: 'Accept-Encoding' } ]
-29 silly lockFile 69f16bd3-redus redus@
-30 silly lockFile 69f16bd3-redus redus@
-31 error 404 Not Found
-31 error 404
-31 error 404 'redus' is not in the npm registry.
-31 error 404 You should bug the author to publish it
-31 error 404 It was specified as a dependency of 'exp1'
-31 error 404
-31 error 404 Note that you can also install from a
-31 error 404 tarball, folder, or http url, or git url.
-32 error System Linux 3.13.0-74-generic
-33 error command "/usr/bin/node" "/usr/bin/npm" "i" "--save" "redus"
-34 error cwd /home/ubuntu/projects/exp1
-35 error node -v v0.10.37
-36 error npm -v 1.4.28
-37 error code E404
-38 verbose exit [ 1, true ]
+20 verbose request id 59abba5dd9cf39e3
+21 verbose url raw /winston
+22 verbose url resolving [ 'https://registry.npmjs.org/', './winston' ]
+23 verbose url resolved https://registry.npmjs.org/winston
+24 verbose request where is https://registry.npmjs.org/winston
+25 info trying registry request attempt 1 at 09:45:37
+26 verbose etag "5MEXEI5X92A30SHRWUKBISB14"
+27 http GET https://registry.npmjs.org/winston
+28 http 200 https://registry.npmjs.org/winston
+29 silly registry.get cb [ 200,
+29 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+29 silly registry.get     etag: '"DMUYD9OZ28US40BHJSV27N74S"',
+29 silly registry.get     'content-type': 'application/json',
+29 silly registry.get     'content-encoding': 'gzip',
+29 silly registry.get     'cache-control': 'max-age=300',
+29 silly registry.get     'content-length': '17749',
+29 silly registry.get     'accept-ranges': 'bytes',
+29 silly registry.get     date: 'Tue, 14 Jun 2016 00:45:35 GMT',
+29 silly registry.get     via: '1.1 varnish',
+29 silly registry.get     age: '114',
+29 silly registry.get     connection: 'keep-alive',
+29 silly registry.get     'x-served-by': 'cache-nrt6123-NRT',
+29 silly registry.get     'x-cache': 'HIT',
+29 silly registry.get     'x-cache-hits': '2',
+29 silly registry.get     'x-timer': 'S1465865135.531793,VS0,VE0',
+29 silly registry.get     vary: 'Accept-Encoding' } ]
+30 silly addNameRange number 2 { name: 'winston', range: '*', hasData: true }
+31 silly addNameRange versions [ 'winston',
+31 silly addNameRange   [ '0.2.11',
+31 silly addNameRange     '0.3.3',
+31 silly addNameRange     '0.3.4',
+31 silly addNameRange     '0.3.5',
+31 silly addNameRange     '0.4.0',
+31 silly addNameRange     '0.4.1',
+31 silly addNameRange     '0.5.0',
+31 silly addNameRange     '0.5.1',
+31 silly addNameRange     '0.5.2',
+31 silly addNameRange     '0.5.3',
+31 silly addNameRange     '0.5.4',
+31 silly addNameRange     '0.5.5',
+31 silly addNameRange     '0.5.6',
+31 silly addNameRange     '0.5.7',
+31 silly addNameRange     '0.5.8',
+31 silly addNameRange     '0.5.9',
+31 silly addNameRange     '0.5.10',
+31 silly addNameRange     '0.5.11',
+31 silly addNameRange     '0.6.1',
+31 silly addNameRange     '0.6.2',
+31 silly addNameRange     '0.7.0',
+31 silly addNameRange     '0.7.1',
+31 silly addNameRange     '0.7.2',
+31 silly addNameRange     '0.7.3',
+31 silly addNameRange     '0.8.0',
+31 silly addNameRange     '0.8.1',
+31 silly addNameRange     '0.8.2',
+31 silly addNameRange     '0.8.3',
+31 silly addNameRange     '0.9.0',
+31 silly addNameRange     '1.0.0',
+31 silly addNameRange     '1.0.1',
+31 silly addNameRange     '1.0.2',
+31 silly addNameRange     '1.1.0',
+31 silly addNameRange     '1.1.1',
+31 silly addNameRange     '1.1.2',
+31 silly addNameRange     '2.0.0',
+31 silly addNameRange     '2.0.1',
+31 silly addNameRange     '2.1.0',
+31 silly addNameRange     '2.1.1',
+31 silly addNameRange     '2.2.0' ] ]
+32 verbose addNamed [ 'winston', '2.2.0' ]
+33 verbose addNamed [ '2.2.0', '2.2.0' ]
+34 silly lockFile f0cceb92-winston-2-2-0 winston@2.2.0
+35 verbose lock winston@2.2.0 /home/ubuntu/.npm/f0cceb92-winston-2-2-0.lock
+36 silly lockFile 7e54621c-js-org-winston-winston-2-2-0-tgz https://registry.npmjs.org/winston/-/winston-2.2.0.tgz
+37 verbose lock https://registry.npmjs.org/winston/-/winston-2.2.0.tgz /home/ubuntu/.npm/7e54621c-js-org-winston-winston-2-2-0-tgz.lock
+38 verbose addRemoteTarball [ 'https://registry.npmjs.org/winston/-/winston-2.2.0.tgz',
+38 verbose addRemoteTarball   '2c853dd87ab552a8e8485d72cbbf9a2286f029b7' ]
+39 info retry fetch attempt 1 at 09:45:37
+40 verbose fetch to= /tmp/npm-1940-0P6t1it_/registry.npmjs.org/winston/-/winston-2.2.0.tgz
+41 http GET https://registry.npmjs.org/winston/-/winston-2.2.0.tgz
+42 http 200 https://registry.npmjs.org/winston/-/winston-2.2.0.tgz
+43 silly lockFile 7e54621c-js-org-winston-winston-2-2-0-tgz https://registry.npmjs.org/winston/-/winston-2.2.0.tgz
+44 silly lockFile 7e54621c-js-org-winston-winston-2-2-0-tgz https://registry.npmjs.org/winston/-/winston-2.2.0.tgz
+45 silly lockFile f0cceb92-winston-2-2-0 winston@2.2.0
+46 silly lockFile f0cceb92-winston-2-2-0 winston@2.2.0
+47 silly lockFile 9aa54492-winston winston@
+48 silly lockFile 9aa54492-winston winston@
+49 error Error: EACCES, mkdir '/home/ubuntu/.npm/winston/2.2.0'
+49 error  { [Error: EACCES, mkdir '/home/ubuntu/.npm/winston/2.2.0']
+49 error   errno: 3,
+49 error   code: 'EACCES',
+49 error   path: '/home/ubuntu/.npm/winston/2.2.0',
+49 error   parent: 'exp1' }
+50 error Please try running this command again as root/Administrator.
+51 error System Linux 3.13.0-74-generic
+52 error command "/usr/bin/node" "/usr/bin/npm" "install" "--save" "winston"
+53 error cwd /home/ubuntu/projects/exp1
+54 error node -v v0.10.37
+55 error npm -v 1.4.28
+56 error path /home/ubuntu/.npm/winston/2.2.0
+57 error code EACCES
+58 error errno 3
+59 error stack Error: EACCES, mkdir '/home/ubuntu/.npm/winston/2.2.0'
+60 verbose exit [ 3, true ]

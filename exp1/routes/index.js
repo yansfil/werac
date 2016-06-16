@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models/db');
+var logger = require('../models/logger');
 require('../models/model');
 var queries = require('../models/queries');
-var formidable = require('formidable');
 var fs = require('fs');
 var url = require('url');
 var async = require('async');
@@ -49,16 +49,10 @@ var ItemModel = db.model('Item');
 
 <!--router 실행부 -->
 var ItemModel = db.model('Item');
-// router.get('/',function(req,res,next){
-//     UserModel.findOneAndUpdate({_id: 15},{$push:{alarm:{"status":2, "mid":78,"comment" : "나다라마바"}, history_mc:78}},function(err,docs){
-//         if(err) return callback1(err);
-//         var gcm_token = [docs.gcm_token];
-//         console.log('gcm toooook :',docs.gcm_token);
-//         gcm_push(comment1,gcm_token);
-//     });
-// });
+
 router.post('/join', join); //회원가입하기
 router.post('/login' , login); //로그인하기
+router.post('/facebook-login',facebook_login); //페이스북 로그인
 router.post('/logout', logout); //로그아웃하기
 router.get('/users', showUsers); //유저 전체정보
 router.get('/my_profile', showUser); //마이페이지 정보
@@ -98,7 +92,25 @@ function join(req,res,next){
     name : name,
     phone : phone
   });
-  UserModel.findOne({email : email},function(err,docs){
+  if(req.body.fb_id){   //fb 로그인일때
+     user = new UserModel({
+        fb_id : req.body.fb_id,
+        name : req.body.name,
+        phone : req.body.phone,
+        gcm_token: req.body.gcmtoken
+     });
+     logger.info('fb_join ) fb_id : ', req.body.fb_id);
+     queries.postJoin(user,function(type,docs){
+         if(type==1){
+             req.session.userid = docs._id;  //session에 uid 넣기
+             sessionId = req.session.userid; //전역변수에 세션 값 넣기
+             res.json({success: 1 , message : "OK", result : docs});
+         }
+         else res.json({success: 0 , message : "NO", result : docs});
+       });
+}
+else{
+  UserModel.findOne({email : email},function(err,docs){ //일반 사인업할때
     if(!docs){
       queries.postJoin(user,function(type,docs){
         if(type==1) res.json({success: 1 , message : "OK", result : docs});
@@ -108,13 +120,15 @@ function join(req,res,next){
       res.json({success: 0, message : "NO", result : "email already exists" })
     }
   });
+ }
 }; //로그아웃하기
+
 
 function login(req,res,next){
   var email = req.body.email;
   var pw = req.body.pw ;
   var gcm_token = req.body.gcmtoken;
-  console.log('user :' , email);
+  logger.warn('login ) user :' , email);
   queries.postLogin(email,pw,gcm_token,function(type,docs){
     if(type==1){
       req.session.userid = docs._id;  //session에 uid 넣기
@@ -127,11 +141,36 @@ function login(req,res,next){
   });
 }; //로그인하기
 
+function facebook_login(req,res,next){
+    var fb_token = req.body.access_token;
+    var gcm_token= req.body.gcmtoken;
+    var obj = new UserModel({
+        fb_token : fb_token,
+        gcm_token : gcm_token
+    });
+    queries.postfacebook(obj,function(type,docs){
+        if(type==1){
+          req.session.userid = docs._id;  //session에 uid 넣기
+          logger.info(req.session.userid);
+          sessionId = req.session.userid; //전역변수에 세션 값 넣기
+          if(sessionId){
+              logger.info('type 1번의 보내는 데이터 : ' , {success: 1 , message : "OK", result : docs});
+            res.json({success: 1 , message : "OK", result : docs});
+          }
+      }else if(type==2){
+          logger.info('type 2번의 보내는 데이터 : ' , {success: 2 , message : "OK", result : docs});
+          res.json({success:2, message : "OK", result : docs});
+      }else res.json({success: 0 , message : "NO"});
+    });
+};
+
+
+
 function logout(req,res,next){
   sessionId = null //전역변수 user 초기화
   req.session.destroy(function(err){ //세션 지우기
-    if(err) return res.json({success: 0 , message : "NO", result : "logout failed"});
-    res.json({success: 1 , message : "OK", result : "logout!"});
+      if(err) return res.json({success: 0 , message : "NO", result : "logout failed"});
+      res.json({success: 1 , message : "OK", result : "logout!"});
   })
 } //로그아웃하기
 
@@ -206,7 +245,7 @@ function showGuestLists(req,res,next){
 
 function showAlarm(req,res,next){
     var uid = req.session.userid;
-    console.log("알람보기");
+    logger.info("알람보기");
     queries.getAlarmList(uid,function(type,docs){
         if(type==1) res.json({success: 1 , message : "OK", result : docs});
         else res.json({success: 0 , message : "NO", result : docs});
@@ -224,9 +263,8 @@ function addLike(req,res,next){
 };
 
 function saveItem(req,res,next){
-  console.log('req.body = ', req.body);
-  console.log(req.file);
-  console.log('image로 저장될 url ',"http://52.79.178.195:3000/images/item/"+req.file.filename);
+  logger.info('saveItem ) req.body = ', req.body);
+  logger.info('saveItem ) image로 저장될 url ',"http://52.79.178.195:3000/images/item/"+req.file.filename);
   async.waterfall([  //async로 size를 얻어온후 결과값을 post요청한다.
     function(callback){
       var imagePath ='public/images/item/'+req.file.filename; //이미지 실제path
@@ -277,7 +315,6 @@ function saveItem(req,res,next){
     queries.postItem(item, function(type,docs){
       if(type==1) res.json({success: 1 , message : "OK", result : docs});
       else res.json({success: 0 , message : "NO", result : docs});
-      console.log(docs);
     })
   });
 
@@ -288,7 +325,7 @@ function updateItem(req,res,next){
   var mid = req.params.mid;
   var uid = req.session.userid;
   var has_mc = req.body.has_mc;
-  console.log('has_mc : ',has_mc);
+  logger.info('updateItem) has_mc : ',has_mc);
   async.waterfall([
     function(callback){
       if(req.file){ //이미지파일을 변경했을 때
@@ -299,8 +336,8 @@ function updateItem(req,res,next){
           if(err){return next(err);}
           image_size.push(dimensions.width);
           image_size.push(dimensions.height);
-          console.log('image_size :', image_size);
-          console.log("file : "+image);
+          logger.info('updateItem ) image_size :', image_size);
+          logger.info("updateItem ) file : "+image);
           ItemModel.findOne({_id:mid},function(err,docs){
             if(err){return next(err);}
             else{
@@ -309,7 +346,7 @@ function updateItem(req,res,next){
               if(exists){
                 fs.unlink(prevPath, function (err) {
                   if(err){return next(err);}
-                  console.log('image delete!');
+                  logger.info('updateItem ) image delete!');
                 });
               }
             });
@@ -319,11 +356,11 @@ function updateItem(req,res,next){
         });
       }else{   //이미지파일은 그대로 일 때
         var image = req.body.image;
-        console.log("url : "+image);
+        logger.info("updateItem) url : "+image);
         callback(null,image,null);
       }
     },function(image,image_size,callback){
-      console.log("pass image_size??", image_size);
+      logger.info("updateItem ) pass image_size??", image_size);
       var title  = req.body.title;
       var title_sub  = req.body.title_sub;
       var schedule = req.body.schedule;
@@ -343,7 +380,7 @@ function updateItem(req,res,next){
         title_sub : title_sub,
         schedule : schedule,
         location_detail : location_detail,
-        location_area : location_detail,
+        location_area : location_area,
         date : date,
         start_time : start_time,
         end_time : end_time,
@@ -359,7 +396,7 @@ function updateItem(req,res,next){
           title_sub : title_sub,
           schedule : schedule,
           location_detail : location_detail,
-          location_area : location_detail,
+          location_area : location_area,
           date : date,
           start_time : start_time,
           end_time : end_time,
@@ -367,7 +404,6 @@ function updateItem(req,res,next){
           limit_num : limit_num
         };
       }
-     console.log('item : ', item);
       callback(null,item);
     }
   ],function(err,item){
@@ -406,7 +442,6 @@ function deleteComment(req,res,next){
     var mid = req.params.mid;
     var uid = req.session.userid;
     var cid = req.body.cid;
-    console.log(cid);
     queries.postDeleteComment(mid,cid,uid,function(type,docs){
         if(type==1) res.json({success: 1 , message : "OK", result : docs});
         else res.json({success: 0 , message : "NO", result : docs});
@@ -438,7 +473,6 @@ function addCLike(req,res,next){
 function changeStatus(req,res,next){
   var mid = req.params.mid;
   var uid = req.session.userid;
-  console.log(123456);
   queries.getChangedStatus(mid,uid,function(type, docs){
     if(type==1) res.json({success: 1 , message : "OK", result : docs});
     else res.json({success: 0 , message : "NO", result : docs});
@@ -452,18 +486,17 @@ function updateUser(req,res,next){
       if(req.file){ //이미지파일을 변경했을 때
         var image = "http://52.79.178.195:3000/images/profile/"+req.file.filename;
         var imagePath ='public/images/profile/'+req.file.filename; //이미지 실제path
-        console.log("file : "+image);
+        logger.info("updateUser) file : "+image);
         UserModel.findOne({_id:uid},function(err,docs){
           if(err){return next(err);}
           else{
           var prevPath = 'public'+url.parse(docs.profile_image).path; //이전 path
-          console.log("prevPath : ",prevPath);
+          logger.info("updateUser) prevPath : ",prevPath);
           fs.exists(prevPath, function (exists) { //기존이미지 삭제
             if(exists){
-              console.log('exists : ',exists);
+              logger.info('updateUser ) exists : ',exists);
               fs.unlink(prevPath, function (err) {
                 if(err){return next(err);}
-                console.log('image delete!');
               });
             }
           });
@@ -475,7 +508,6 @@ function updateUser(req,res,next){
           if(req.body.profile_image){
             image = req.body.profile_image;
           }
-          console.log("url : "+image);
           callback(null,image);
         }
     },function(image,callback){
